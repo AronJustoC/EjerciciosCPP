@@ -5,7 +5,8 @@
 using namespace std;
 
 vector<int> ordenarInsercion(vector<int>);
-void imprimir(vector<int>);
+void imprimirAscendente(vector<int>);
+void imprimirDescendente(vector<int>);
 
 using namespace std;
 int main() {
@@ -23,7 +24,8 @@ int main() {
   vector<int> ordenado;
 
   ordenado = ordenarInsercion(arreglo);
-  imprimir(ordenado);
+  imprimirAscendente(ordenado);
+  imprimirDescendente(ordenado);
 
   return 0;
 }
@@ -43,8 +45,15 @@ vector<int> ordenarInsercion(vector<int> arreglo) {
   return arreglo;
 }
 
-void imprimir(vector<int> arreglo) {
+void imprimirAscendente(vector<int> arreglo) {
   for (int i = 0; i < arreglo.size(); i++) {
+    cout << arreglo[i] << " ";
+  }
+  cout << endl;
+}
+
+void imprimirDescendente(vector<int> arreglo) {
+  for (int i = arreglo.size() - 1; i >= 0; i--) {
     cout << arreglo[i] << " ";
   }
   cout << endl;
