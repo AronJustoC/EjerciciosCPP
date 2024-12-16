@@ -1,0 +1,18 @@
+//Excluir carpeta output/ de compilacion
+/output/
+
+//Excluir carpeta build/ de compilacion
+/build/
+
+//Excluir archivos de compilación
+*.o
+*.out
+
+//Excluir archivos de ejecución
+*.exe
+
+//Excluir archivos de depuración
+*.dSYM
+
+//Excluir archivos de depuración
+*.gcda
