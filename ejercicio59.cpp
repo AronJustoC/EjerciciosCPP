@@ -1,42 +1,48 @@
-// Estructura anidada en  C++
+/*Ejercicio 59
+Hacer una estructura llamada corredor qu tenga los sigueintes campos:
+Nombre, edad, sexo, club, pedir datos al usuario para un corredor,
+y asignarle una categoria de competicion.
+ -Juvenil <= 18 años
+ - Senior <= 40 años
+ - Veterano > 40 años
+ Posteriormente, imprimir todos los datos del corredor en pantalla.
+*/
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-struct info_direccion {
-  char direccion[20];
-  char ciudad[20];
-  char provincia[20];
-};
-
-struct empleado {
-  char nombre[20];
-  struct info_direccion dir_empleado;
-  double salario;
-} empleado[2]; // Array de 2 estructuras empleado
+struct Corredor {
+  string nombre;
+  int edad;
+  string sexo;
+  string club;
+} c1;
 
 int main() {
-  for (int i = 0; i < 2; i++) {
-    cout << "Digite su nombre: " << endl;
-    cin.getline(empleado[i].nombre, 20);
-    cout << "Direccion: " << endl;
-    cin.getline(empleado[i].dir_empleado.direccion, 20);
-    cout << "Ciudad: " << endl;
-    cin.getline(empleado[i].dir_empleado.ciudad, 20);
-    cout << "Provincia: " << endl;
-    cin.getline(empleado[i].dir_empleado.provincia, 20);
-    cout << "Salario: " << endl;
-    cin >> empleado[i].salario;
-    // Limpiar buffer
-    cin.ignore(100, '\n');
+  string categoria;
+  cout << "Escriba el nombre del corredor: " << endl;
+  getline(cin, c1.nombre);
+  cout << "Escriba la edad del corredor: " << endl;
+  cin >> c1.edad;
+  cin.ignore();
+  cout << "Escriba el sexo del corredor: " << endl;
+  getline(cin, c1.sexo);
+  cout << "Escriba el club del corredor: " << endl;
+  getline(cin, c1.club);
+  if (c1.edad <= 18) {
+    categoria = "Juvenil";
+  } else if (c1.edad <= 40) {
+    categoria = "Senior";
+  } else {
+    categoria = "Veterano";
   }
 
-  for (int i = 0; i < 2; i++) {
-    cout << "Nombre: " << empleado[i].nombre << endl;
-    cout << "Direccion: " << empleado[i].dir_empleado.direccion << endl;
-    cout << "Ciudad: " << empleado[i].dir_empleado.ciudad << endl;
-    cout << "Provincia: " << empleado[i].dir_empleado.provincia << endl;
-    cout << "Salario: " << empleado[i].salario << endl;
-  }
+  cout << "Mostrando datos del corredor: " << endl;
+  cout << "Nombre: " << c1.nombre << endl;
+  cout << "Edad: " << c1.edad << endl;
+  cout << "Sexo: " << c1.sexo << endl;
+  cout << "Club: " << c1.club << endl;
+  cout << "Categoria: " << categoria << endl;
   return 0;
 }
